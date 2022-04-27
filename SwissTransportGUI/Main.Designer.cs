@@ -31,11 +31,12 @@
             this.lblAktuellest = new System.Windows.Forms.Label();
             this.libxAnzeigetafel = new System.Windows.Forms.ListBox();
             this.txtStartst = new System.Windows.Forms.TextBox();
-            this.libxVerbindungen = new System.Windows.Forms.ListBox();
             this.txtEndst = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnVerbindungen = new System.Windows.Forms.Button();
+            this.dgvVerbindungen = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVerbindungen)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAktuellest
@@ -64,15 +65,6 @@
             this.txtStartst.Name = "txtStartst";
             this.txtStartst.Size = new System.Drawing.Size(160, 39);
             this.txtStartst.TabIndex = 2;
-            // 
-            // libxVerbindungen
-            // 
-            this.libxVerbindungen.FormattingEnabled = true;
-            this.libxVerbindungen.ItemHeight = 20;
-            this.libxVerbindungen.Location = new System.Drawing.Point(601, 153);
-            this.libxVerbindungen.Name = "libxVerbindungen";
-            this.libxVerbindungen.Size = new System.Drawing.Size(392, 424);
-            this.libxVerbindungen.TabIndex = 4;
             // 
             // txtEndst
             // 
@@ -110,21 +102,32 @@
             this.btnVerbindungen.UseVisualStyleBackColor = true;
             this.btnVerbindungen.Click += new System.EventHandler(this.btnVerbindungen_Click);
             // 
+            // dgvVerbindungen
+            // 
+            this.dgvVerbindungen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVerbindungen.Location = new System.Drawing.Point(600, 168);
+            this.dgvVerbindungen.Name = "dgvVerbindungen";
+            this.dgvVerbindungen.RowHeadersWidth = 51;
+            this.dgvVerbindungen.RowTemplate.Height = 29;
+            this.dgvVerbindungen.Size = new System.Drawing.Size(416, 372);
+            this.dgvVerbindungen.TabIndex = 9;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 602);
+            this.ClientSize = new System.Drawing.Size(1090, 597);
+            this.Controls.Add(this.dgvVerbindungen);
             this.Controls.Add(this.btnVerbindungen);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtEndst);
-            this.Controls.Add(this.libxVerbindungen);
             this.Controls.Add(this.txtStartst);
             this.Controls.Add(this.libxAnzeigetafel);
             this.Controls.Add(this.lblAktuellest);
             this.Name = "Main";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVerbindungen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,10 +138,10 @@
         private Label lblAktuellest;
         private ListBox libxAnzeigetafel;
         private TextBox txtStartst;
-        private ListBox libxVerbindungen;
         private TextBox txtEndst;
         private Label label2;
         private Label label3;
         private Button btnVerbindungen;
+        private DataGridView dgvVerbindungen;
     }
 }

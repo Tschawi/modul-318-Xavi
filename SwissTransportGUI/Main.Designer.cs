@@ -28,51 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.lblAktuellest = new System.Windows.Forms.Label();
-            this.libxAnzeigetafel = new System.Windows.Forms.ListBox();
-            this.txtStartst = new System.Windows.Forms.TextBox();
-            this.txtEndst = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnVerbindungen = new System.Windows.Forms.Button();
-            this.dgvVerbindungen = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVerbindungen)).BeginInit();
+            this.cbxStart = new System.Windows.Forms.ComboBox();
+            this.cbxEnd = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblAktuellest
             // 
             this.lblAktuellest.AutoSize = true;
             this.lblAktuellest.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblAktuellest.Location = new System.Drawing.Point(31, 27);
+            this.lblAktuellest.Location = new System.Drawing.Point(34, 32);
             this.lblAktuellest.Name = "lblAktuellest";
             this.lblAktuellest.Size = new System.Drawing.Size(174, 31);
             this.lblAktuellest.TabIndex = 0;
             this.lblAktuellest.Text = "Aktuelle Station";
-            // 
-            // libxAnzeigetafel
-            // 
-            this.libxAnzeigetafel.FormattingEnabled = true;
-            this.libxAnzeigetafel.ItemHeight = 20;
-            this.libxAnzeigetafel.Location = new System.Drawing.Point(31, 71);
-            this.libxAnzeigetafel.Name = "libxAnzeigetafel";
-            this.libxAnzeigetafel.Size = new System.Drawing.Size(387, 504);
-            this.libxAnzeigetafel.TabIndex = 1;
-            // 
-            // txtStartst
-            // 
-            this.txtStartst.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtStartst.Location = new System.Drawing.Point(601, 55);
-            this.txtStartst.Name = "txtStartst";
-            this.txtStartst.Size = new System.Drawing.Size(160, 39);
-            this.txtStartst.TabIndex = 2;
-            // 
-            // txtEndst
-            // 
-            this.txtEndst.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEndst.Location = new System.Drawing.Point(833, 55);
-            this.txtEndst.Name = "txtEndst";
-            this.txtEndst.Size = new System.Drawing.Size(160, 39);
-            this.txtEndst.TabIndex = 5;
             // 
             // label2
             // 
@@ -94,7 +67,7 @@
             // 
             // btnVerbindungen
             // 
-            this.btnVerbindungen.Location = new System.Drawing.Point(709, 100);
+            this.btnVerbindungen.Location = new System.Drawing.Point(707, 99);
             this.btnVerbindungen.Name = "btnVerbindungen";
             this.btnVerbindungen.Size = new System.Drawing.Size(175, 47);
             this.btnVerbindungen.TabIndex = 8;
@@ -102,32 +75,40 @@
             this.btnVerbindungen.UseVisualStyleBackColor = true;
             this.btnVerbindungen.Click += new System.EventHandler(this.btnVerbindungen_Click);
             // 
-            // dgvVerbindungen
+            // cbxStart
             // 
-            this.dgvVerbindungen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVerbindungen.Location = new System.Drawing.Point(600, 168);
-            this.dgvVerbindungen.Name = "dgvVerbindungen";
-            this.dgvVerbindungen.RowHeadersWidth = 51;
-            this.dgvVerbindungen.RowTemplate.Height = 29;
-            this.dgvVerbindungen.Size = new System.Drawing.Size(416, 372);
-            this.dgvVerbindungen.TabIndex = 9;
+            this.cbxStart.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbxStart.FormattingEnabled = true;
+            this.cbxStart.Location = new System.Drawing.Point(601, 54);
+            this.cbxStart.Name = "cbxStart";
+            this.cbxStart.Size = new System.Drawing.Size(180, 33);
+            this.cbxStart.TabIndex = 14;
+            this.cbxStart.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbxStart_KeyUp);
+            // 
+            // cbxEnd
+            // 
+            this.cbxEnd.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbxEnd.FormattingEnabled = true;
+            this.cbxEnd.Location = new System.Drawing.Point(830, 54);
+            this.cbxEnd.Name = "cbxEnd";
+            this.cbxEnd.Size = new System.Drawing.Size(180, 33);
+            this.cbxEnd.TabIndex = 15;
+            this.cbxEnd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbxEnd_KeyUp);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1090, 597);
-            this.Controls.Add(this.dgvVerbindungen);
+            this.Controls.Add(this.cbxEnd);
+            this.Controls.Add(this.cbxStart);
             this.Controls.Add(this.btnVerbindungen);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtEndst);
-            this.Controls.Add(this.txtStartst);
-            this.Controls.Add(this.libxAnzeigetafel);
             this.Controls.Add(this.lblAktuellest);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVerbindungen)).EndInit();
+            this.Text = "So ein geiles Produkt";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,12 +117,10 @@
         #endregion
 
         private Label lblAktuellest;
-        private ListBox libxAnzeigetafel;
-        private TextBox txtStartst;
-        private TextBox txtEndst;
         private Label label2;
         private Label label3;
         private Button btnVerbindungen;
-        private DataGridView dgvVerbindungen;
+        private ComboBox cbxStart;
+        private ComboBox cbxEnd;
     }
 }

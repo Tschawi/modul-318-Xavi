@@ -43,9 +43,9 @@
             this.lblAktuellest.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblAktuellest.Location = new System.Drawing.Point(30, 24);
             this.lblAktuellest.Name = "lblAktuellest";
-            this.lblAktuellest.Size = new System.Drawing.Size(153, 25);
+            this.lblAktuellest.Size = new System.Drawing.Size(68, 25);
             this.lblAktuellest.TabIndex = 0;
-            this.lblAktuellest.Text = "Meggen, Kapelle";
+            this.lblAktuellest.Text = "Sursee";
             this.lblAktuellest.Click += new System.EventHandler(this.lblAktuellest_Click);
             // 
             // label2

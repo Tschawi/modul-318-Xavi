@@ -152,7 +152,7 @@ namespace SwissTransportGUI
                     else
                     {
                         mylab.Location = new Point(x + 360, y);
-                        mylab.Text = Verbindung.Number;
+                        mylab.Text = Verbindung.Category + " " + Verbindung.Number;
                     }
                     this.Controls.Add(mylab);
                     lblname++;

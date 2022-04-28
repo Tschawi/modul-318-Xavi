@@ -35,44 +35,43 @@
             this.btnVerbindungen = new System.Windows.Forms.Button();
             this.cbxStart = new System.Windows.Forms.ComboBox();
             this.cbxEnd = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblAktuellest
             // 
             this.lblAktuellest.AutoSize = true;
             this.lblAktuellest.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblAktuellest.Location = new System.Drawing.Point(34, 32);
+            this.lblAktuellest.Location = new System.Drawing.Point(30, 24);
             this.lblAktuellest.Name = "lblAktuellest";
-            this.lblAktuellest.Size = new System.Drawing.Size(174, 31);
+            this.lblAktuellest.Size = new System.Drawing.Size(153, 25);
             this.lblAktuellest.TabIndex = 0;
-            this.lblAktuellest.Text = "Aktuelle Station";
+            this.lblAktuellest.Text = "Meggen, Kapelle";
+            this.lblAktuellest.Click += new System.EventHandler(this.lblAktuellest_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(601, 32);
+            this.label2.Location = new System.Drawing.Point(526, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 20);
+            this.label2.Size = new System.Drawing.Size(67, 15);
             this.label2.TabIndex = 6;
             this.label2.Text = "Startstation";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(833, 32);
+            this.label3.Location = new System.Drawing.Point(729, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 20);
+            this.label3.Size = new System.Drawing.Size(63, 15);
             this.label3.TabIndex = 7;
             this.label3.Text = "Endstation";
             // 
             // btnVerbindungen
             // 
-            this.btnVerbindungen.Location = new System.Drawing.Point(707, 99);
+            this.btnVerbindungen.Location = new System.Drawing.Point(619, 74);
+            this.btnVerbindungen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVerbindungen.Name = "btnVerbindungen";
-            this.btnVerbindungen.Size = new System.Drawing.Size(175, 47);
+            this.btnVerbindungen.Size = new System.Drawing.Size(153, 35);
             this.btnVerbindungen.TabIndex = 8;
             this.btnVerbindungen.Text = "Verbindungen suchen";
             this.btnVerbindungen.UseVisualStyleBackColor = true;
@@ -82,9 +81,10 @@
             // 
             this.cbxStart.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbxStart.FormattingEnabled = true;
-            this.cbxStart.Location = new System.Drawing.Point(601, 54);
+            this.cbxStart.Location = new System.Drawing.Point(526, 40);
+            this.cbxStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxStart.Name = "cbxStart";
-            this.cbxStart.Size = new System.Drawing.Size(180, 33);
+            this.cbxStart.Size = new System.Drawing.Size(158, 27);
             this.cbxStart.TabIndex = 14;
             this.cbxStart.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbxStart_KeyUp);
             // 
@@ -92,47 +92,18 @@
             // 
             this.cbxEnd.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbxEnd.FormattingEnabled = true;
-            this.cbxEnd.Location = new System.Drawing.Point(830, 54);
+            this.cbxEnd.Location = new System.Drawing.Point(726, 40);
+            this.cbxEnd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxEnd.Name = "cbxEnd";
-            this.cbxEnd.Size = new System.Drawing.Size(180, 33);
+            this.cbxEnd.Size = new System.Drawing.Size(158, 27);
             this.cbxEnd.TabIndex = 15;
             this.cbxEnd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbxEnd_KeyUp);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 112);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 20);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "label1";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(90, 112);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 20);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "label4";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(146, 112);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 20);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "label5";
-            // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1090, 597);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(954, 448);
             this.Controls.Add(this.cbxEnd);
             this.Controls.Add(this.cbxStart);
             this.Controls.Add(this.btnVerbindungen);
@@ -140,6 +111,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblAktuellest);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Main";
             this.Text = "So ein geiles Produkt";
             this.ResumeLayout(false);
@@ -155,8 +127,5 @@
         private Button btnVerbindungen;
         private ComboBox cbxStart;
         private ComboBox cbxEnd;
-        private Label label1;
-        private Label label4;
-        private Label label5;
     }
 }

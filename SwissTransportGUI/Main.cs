@@ -13,7 +13,7 @@ namespace SwissTransportGUI
         {
             InitializeComponent();
             this.Database = new Transport();
-
+            
         }
 
         private void btnVerbindungen_Click(object sender, EventArgs e)
@@ -69,8 +69,7 @@ namespace SwissTransportGUI
             }
            
         }
-        
-        
+  
 
         private void cbxStart_KeyUp(object sender, KeyEventArgs e)
         {
@@ -113,6 +112,54 @@ namespace SwissTransportGUI
                         cbxEnd.Items.Add(item);
                     }
                 cbxEnd.DroppedDown = true;
+            }
+        }
+
+        private void lblAktuellest_Click(object sender, EventArgs e)
+        {
+            string aktuellest = lblAktuellest.Text;
+            var Abfahrtstafel = Database.GetStationBoard(aktuellest, "0");
+            int x = 30;
+            int y = 90;
+            int lblname = 13;
+            for (int i = 13; i < 25; i++)
+            {
+                var label = this.Controls.OfType<Label>().FirstOrDefault(l => l.Name == i.ToString());
+                if (label != null)
+                    this.Controls.Remove(label);
+            }
+
+
+            foreach (var Verbindung in Abfahrtstafel.Entries)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    Label mylab = new Label();
+                    mylab.AutoSize = true;
+                    mylab.Font = new Font("Segoe UI", 11);
+                    mylab.Name = lblname.ToString();
+                    if (i == 0)
+                    {
+                        mylab.Location = new Point(x, y);
+                        mylab.Text = String.Format("{0:HH:mm}", Verbindung.Stop.Departure);
+
+                    }
+                    else if (i == 1)
+                    {
+                        mylab.Location = new Point(x + 70, y);
+                        mylab.Text = Verbindung.To;
+                    }
+                    else
+                    {
+                        mylab.Location = new Point(x + 360, y);
+                        mylab.Text = Verbindung.Number;
+                    }
+                    this.Controls.Add(mylab);
+                    lblname++;
+                }
+                y += 40;
+                if (31 < lblname)
+                    break;
             }
         }
     }

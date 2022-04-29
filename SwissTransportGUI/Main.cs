@@ -26,12 +26,12 @@ namespace SwissTransportGUI
             if(Startstation != "" && Endstation != "")
             {
                 var Verbindungen = Database.GetConnections(Startstation, Endstation, Date, Time);
-                int x = 777; 
-                int y = 200;
+                int xCord = 777; 
+                int yCord = 200;
                 int lblname = 1;
-                for (int i = 0; i < 19; i++)
+                for (int zähler = 0; zähler < 19; zähler++)
                 {
-                    var label = this.Controls.OfType<Label>().FirstOrDefault(l => l.Name == i.ToString());
+                    var label = this.Controls.OfType<Label>().FirstOrDefault(l => l.Name == zähler.ToString());
                     if (label != null)
                         this.Controls.Remove(label);
                 }
@@ -42,8 +42,8 @@ namespace SwissTransportGUI
                         string Text1 = String.Format("{0:HH:mm}", Verbindung.From.Departure);
                         string Text2 = Verbindung.To.Station.Name;
                         string Text3 = String.Format("{0:HH:mm}", Verbindung.To.Arrival);
-                        lblname = createlbl(lblname, x, y, Text1, Text2, Text3);
-                    y += 75;
+                        lblname = createlbl(lblname, xCord, yCord, Text1, Text2, Text3);
+                    yCord += 75;
                 }
                 
             }
@@ -52,34 +52,34 @@ namespace SwissTransportGUI
             }
            
         }
-        private int createlbl(int lblname, int x, int y, string Text1, string Text2, string Text3)
+        private int createlbl(int lblname, int xCord, int yCord, string Text1, string Text2, string Text3)
         {
-            for (int i = 0; i < 3; i++)
+            for (int zähler = 0; zähler < 3; zähler++)
             {
                 Label mylab = new Label();
                 mylab.AutoSize = true;
                 mylab.Font = new Font("Segoe UI", 13);
                 mylab.Name = lblname.ToString();
-                if (i == 0)
+                if (zähler == 0)
                 {
-                    mylab.Location = new Point(x, y);
+                    mylab.Location = new Point(xCord, yCord);
                     mylab.Text = String.Format("{0:HH:mm}", Text1);
 
                 }
-                else if (i == 1)
+                else if (zähler == 1)
                 {
-                    mylab.Location = new Point(x + 70, y);
+                    mylab.Location = new Point(xCord + 70, yCord);
                     mylab.Text = Text2;
                 }
                 else
                 {
-                    mylab.Location = new Point(x + 360, y);
+                    mylab.Location = new Point(xCord + 360, yCord);
                     mylab.Text = String.Format("{0:HH:mm}", Text3);
                 }
                 this.Controls.Add(mylab);
                 lblname++;
             }
-            y += 40;
+            yCord += 40;
             return lblname;
         }
   
@@ -130,9 +130,9 @@ namespace SwissTransportGUI
 
         private void lblKarte_Click(object sender, EventArgs e)
         {
-            for (int i = 19; i < 46; i++)
+            for (int zähler = 19; zähler < 46; zähler++)
             {
-                var label = this.Controls.OfType<Label>().FirstOrDefault(l => l.Name == i.ToString());
+                var label = this.Controls.OfType<Label>().FirstOrDefault(l => l.Name == zähler.ToString());
                 if (label != null)
                     this.Controls.Remove(label);
             }
@@ -146,28 +146,32 @@ namespace SwissTransportGUI
 
         private void label1_Click(object sender, EventArgs e)
         {
-            var Abfahrtstafel = Database.GetStationBoard(cbxStart.Text, "0");
-            int x = 48;
-            int y = 151;
-            int lblname = 19;
-            this.Controls.Remove(this.Controls.OfType<WebBrowser>().FirstOrDefault(l => l.Name == "Map"));
-            for (int i = 19; i < 46; i++)
+            if (cbxStart.Text != "")
             {
-                var label = this.Controls.OfType<Label>().FirstOrDefault(l => l.Name == i.ToString());
-                if (label != null)
-                    this.Controls.Remove(label);
+                var Abfahrtstafel = Database.GetStationBoard(cbxStart.Text, "0");
+                int xCord = 48;
+                int yCord = 151;
+                int lblname = 19;
+                this.Controls.Remove(this.Controls.OfType<WebBrowser>().FirstOrDefault(l => l.Name == "Map"));
+                for (int zähler = 19; zähler < 46; zähler++)
+                {
+                    var label = this.Controls.OfType<Label>().FirstOrDefault(l => l.Name == zähler.ToString());
+                    if (label != null)
+                        this.Controls.Remove(label);
+                }
+                foreach (var Verbindung in Abfahrtstafel.Entries)
+                {
+                    string Text4 = String.Format("{0:HH:mm}", Verbindung.Stop.Departure);
+                    string Text5 = Verbindung.To;
+                    string Text6 = Verbindung.Category + " " + Verbindung.Number;
+                    lblname = createlbl(lblname, xCord, yCord, Text4, Text5, Text6);
+                    lblname++;
+                    yCord += 75;
+                    if (45 < lblname)
+                        break;
+                }
             }
-            foreach (var Verbindung in Abfahrtstafel.Entries)
-            {
-                string Text4 = String.Format("{0:HH:mm}", Verbindung.Stop.Departure);
-                string Text5 = Verbindung.To;
-                string Text6 = Verbindung.Category + " " + Verbindung.Number;
-                lblname = createlbl(lblname, x, y, Text4, Text5, Text6);
-                lblname++;
-                y += 75;
-                if (45 < lblname)
-                    break;
-            }
+            
         }
     }
 }
